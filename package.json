@@ -12,6 +12,7 @@
   "dependencies": {
     "html2canvas": "^1.4.1",
     "jimp": "^0.22.12",
-    "selenium-webdriver": "^4.19.0"
+    "selenium-webdriver": "^4.19.0",
+    "jsdom":  "^24.0.0"
   }
 }

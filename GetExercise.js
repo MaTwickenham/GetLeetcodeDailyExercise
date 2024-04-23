@@ -13,7 +13,9 @@ async function fetchExerciseUrl() {
         const dom = new JSDOM(html);
         const doc = dom.window.document;
 
-        let node = doc.getElementsByClassName("mt-4")[26]; // 获取指定类的第27个元素
+        let element_list = doc.getElementsByClassName("mt-4"); // 获取指定类的第27个元素
+        let node_index = element_list.length-1;
+        let node = element_list[node_index];
         let exercise_url = node.children[0].href;
         
         return exercise_url;
@@ -34,7 +36,7 @@ async function fetchExerciseContent(url) {
         let rect = await element.getRect();
         
         // 调整窗口大小确保元素可见
-        await driver.manage().window().setRect({ width: rect.width, height: rect.height + 300 });
+        await driver.manage().window().setRect({ width: rect.width + 50, height: rect.height + 300 });
 
         // 截取整个浏览器窗口的截图
         const screenshot = await driver.takeScreenshot();
